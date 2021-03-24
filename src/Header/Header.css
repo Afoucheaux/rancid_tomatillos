@@ -1,0 +1,16 @@
+.header {
+  display: flex; 
+  justify-content: space-between;
+  align-items: center; 
+  padding: 10px 30px; 
+  background-color: rgb(0, 0, 0, .4);
+}
+
+.home-btn {
+  background-color: #c203fc;
+  font-size: 1.2em; 
+  padding: 10px 30px;
+  border-radius: 20px; 
+  border: none; 
+  color: #FFF; 
+}
