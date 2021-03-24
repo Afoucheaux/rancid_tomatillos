@@ -1,5 +1,6 @@
 import React, { Component }from "react";
 import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
 import movieData from "../data/movies.js";
 
 
@@ -15,7 +16,7 @@ class HomePage extends Component {
        <>
         <Header/>
         <main>Movies Go Here</main>
-        <footer>Our contact info here</footer>
+        <Footer/>
        </>  
     )
   }
