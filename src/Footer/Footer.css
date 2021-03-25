@@ -1,0 +1,17 @@
+.footer{
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  position: fixed;
+  bottom: 0; 
+  width: 100%;
+  background-color: rgb(26, 4, 82);
+  height: 50px; 
+}
+
+.footer-btn {
+  background: none; 
+  border: none;
+  color: rgb(104, 67, 153);
+  font-size: 1.2em;  
+}
