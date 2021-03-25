@@ -1,6 +1,7 @@
 .card-container {
   display: flex; 
   flex-direction: column; 
+  margin: 1%;  
   box-shadow: 12px 12px 25px 1px rgba(194, 3, 252, .2),
   -12px -12px 25px 1px rgba(194, 3, 252, .2);
   width: 22%;
@@ -8,9 +9,10 @@
 }
 
 .card-image {
+  margin-top: 15px; 
   border-radius: 5px 5px 0px 0px; 
   height: 35vh; 
-  object-fit: cover;  
+  object-fit: scale-down;  
   margin-bottom: 5px; 
 }
 

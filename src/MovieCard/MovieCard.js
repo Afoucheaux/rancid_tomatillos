@@ -1,13 +1,13 @@
 import React from "react";
 import "./MovieCard.css"
 
-const MovieCard = (props) => {
+const MovieCard = ({id, posterImage, title, averageRating, releaseDate }) => {
   return (
-    <article className="card-container">
-      <img className= "card-image" src={props.movieInfo.posterImage} alt={`movie poster for ${props.movieInfo.title}`}/>
-      <p className="card-text">{props.movieInfo.title}</p>
-      <p className="card-text">{props.movieInfo.averageRating}</p>
-      <p className="card-text">{props.movieInfo.releaseDate}</p>
+    <article className="card-container" id={id}>
+      <img className= "card-image" src={posterImage} alt={`movie poster for ${title}`}/>
+      <p className="card-text">{title}</p>
+      <p className="card-text">Rating | {averageRating}</p>
+      <p className="card-text">Released | {releaseDate}</p>
     </article>
   )
 }

@@ -10,22 +10,29 @@ class HomePage extends Component {
   constructor() {
     super()
     this.state= {
-      movies: [  {
-        id: 501953,
-      posterImage: "https://image.tmdb.org/t/p/original//2wXrBtfrvwMWE1i3iHjKjoRZjYk.jpg",
-      backdropImage: "https://image.tmdb.org/t/p/original//oeaLQKoPFQxvhEz3yyR1QuestXG.jpg",
-      title: "Eternal Beauty",
-      averageRating: 3,
-      releaseDate: "2020-08-21"
-    }],
+      movies: movieData.movies,
     }
   }
+  
+  displayMovies = () => {
+    const movieList = this.state.movies.map(movie => {
+      return <MovieCard 
+        key={movie.id} 
+        id={movie.id} 
+        posterImage={movie.poster_path} 
+        title={movie.title} 
+        averageRating={movie.average_rating.toFixed(1)} 
+        releaseDate={movie.release_date}/>
+    })
+    return movieList; 
+  }
+
   render() {
     return (
        <>
         <Header/>
         <main>
-          <MovieCard movieInfo={this.state.movies[0]}/>
+          {this.displayMovies()}
         </main>
         <Footer/>
        </>  
