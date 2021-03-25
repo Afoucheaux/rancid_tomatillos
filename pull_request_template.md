@@ -7,3 +7,4 @@ _How does this change address the problem?_
 ## Learning
 _Describe the research stage_
 _Links to blog posts, patterns, libraries or addons used to solve this problem_
+
