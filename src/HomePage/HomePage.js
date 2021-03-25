@@ -7,11 +7,17 @@ import "./HomePage.css";
 
 
 class HomePage extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state= {
       movies: movieData.movies,
     }
+  }
+
+  onMovieClick = (event) => {
+    console.log("test movie click")
+    console.log(event.target.parentNode)
+    this.props.toggleMovieClicked()
   }
   
   displayMovies = () => {
@@ -22,7 +28,8 @@ class HomePage extends Component {
         posterImage={movie.poster_path} 
         title={movie.title} 
         averageRating={movie.average_rating.toFixed(1)} 
-        releaseDate={movie.release_date}/>
+        releaseDate={movie.release_date}
+        handleClick={this.onMovieClick}/>
     })
     return movieList; 
   }
