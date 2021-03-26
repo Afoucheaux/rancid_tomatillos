@@ -37,7 +37,7 @@ class HomePage extends Component {
   render() {
     return (
        <>
-        <Header/>
+        <Header hide={"hidden"}/>
         <main>
           {this.displayMovies()}
         </main>

@@ -6,7 +6,7 @@ const Header = (props) => {
     <header className="header">
       <h1 className="header-title">Rotton Tomatillos</h1>
       <div>
-        <button onClick={props.onHomeClick} className="home-btn">Home</button>
+        <button onClick={props.onHomeClick} className={`home-btn ${props.hide}`}>Home</button>
       </div>
     </header>
   )
