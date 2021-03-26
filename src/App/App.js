@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import './App.css';
-import HomePage from '../HomePage/HomePage'
+import HomePage from '../HomePage/HomePage';
+import MovieSnapShot from '../MovieSnapShot/MovieSnapShot'
 
 class App extends Component {
   constructor() {
@@ -18,7 +19,7 @@ class App extends Component {
     return (
       <>
         {!this.state.clickedMovieId ?
-        <HomePage onMovieClick={this.onMovieClick}/> : <h1>Test</h1>}
+        <HomePage onMovieClick={this.onMovieClick}/> : <MovieSnapShot />}
       </>
     )
   }
