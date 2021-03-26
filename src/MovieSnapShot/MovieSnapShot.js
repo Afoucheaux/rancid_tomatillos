@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import MovieCard from "../MovieCard/MovieCard";
 import singleMovie from "../data/singleMovie.js";
+import "./MovieSnapShot.css";
 
 class MovieSnapShot extends Component {
   constructor(props) {
@@ -13,9 +14,11 @@ class MovieSnapShot extends Component {
   }
 
   render() {
-    console.log(this.state);
+    // const style = {
+    //   backgroundImage: url(this.state.singleMovie.backdrop_path)
+    // }
     return (
-      <>
+      <div className="background-img" style={{backgroundImage: `url(${this.state.singleMovie.backdrop_path})`}}>
         <Header />
         <MovieCard
           key={this.state.singleMovie.id}
@@ -26,7 +29,7 @@ class MovieSnapShot extends Component {
           releaseDate={this.state.singleMovie.release_date}
         />
         <Footer />
-      </>
+      </div>
     )
   }
 }
