@@ -1,3 +1,14 @@
 .background-img {
   height: 100vh;
 }
+
+
+.single-movie-container {
+  display: flex;
+  align-items: flex-end;
+}
+
+
+.extra-info-container {
+  background-color: rgb(0, 0, 0, .4);
+}

@@ -38,7 +38,7 @@ class HomePage extends Component {
     return (
        <>
         <Header hide={"hidden"}/>
-        <main>
+        <main className="movies-container">
           {this.displayMovies()}
         </main>
         <Footer/>
