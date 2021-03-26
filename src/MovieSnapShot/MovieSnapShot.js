@@ -14,12 +14,9 @@ class MovieSnapShot extends Component {
   }
 
   render() {
-    // const style = {
-    //   backgroundImage: url(this.state.singleMovie.backdrop_path)
-    // }
     return (
       <div className="background-img" style={{backgroundImage: `url(${this.state.singleMovie.backdrop_path})`}}>
-        <Header />
+        <Header onHomeClick={this.props.onHomeClick}/>
         <MovieCard
           key={this.state.singleMovie.id}
           id={this.state.singleMovie.id}

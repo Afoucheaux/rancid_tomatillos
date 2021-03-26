@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import "./Header.css";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <header className="header">
       <h1 className="header-title">Rotton Tomatillos</h1>
       <div>
-        <button className="home-btn">Home</button>
+        <button onClick={props.onHomeClick} className="home-btn">Home</button>
       </div>
     </header>
   )
