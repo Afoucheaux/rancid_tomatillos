@@ -2,41 +2,37 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import MovieCard from "../MovieCard/MovieCard";
-import singleMovie from "../data/singleMovie.js";
 import "./MovieSnapShot.css";
 
-class MovieSnapShot extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      singleMovie: singleMovie.movie
-    }
-  }
 
-  render() {
-    const genres = this.state.singleMovie.genres.join(" | ");
-    return (
-      <div className="background-img" style={{backgroundImage: `url(${this.state.singleMovie.backdrop_path})`}}>
-        <Header onHomeClick={this.props.onHomeClick}/>
+
+    const MovieSnapShot = ({ singleMovie, trailer, onHomeClick, error}) => {
+    const trailerToPlay = `https://www.youtube.com/embed/${trailer.key}`;
+    const genres = singleMovie.genres.join(" | ");
+     return (
+      <div className="background-img" style={{backgroundImage: `url(${singleMovie.backdrop_path})`}}>
+        <Header onHomeClick={onHomeClick}/>
         <main className="single-movie-container">
+          {error && <h1>There was an issue, please refresh and try again</h1>}
           <MovieCard
-            key={this.state.singleMovie.id}
-            id={this.state.singleMovie.id}
-            posterImage={this.state.singleMovie.poster_path}
-            title={this.state.singleMovie.title}
-            averageRating={this.state.singleMovie.average_rating.toFixed(1)}
-            releaseDate={this.state.singleMovie.release_date}
+            key={singleMovie.id}
+            id={singleMovie.id}
+            posterImage={singleMovie.poster_path}
+            title={singleMovie.title}
+            averageRating={singleMovie.average_rating.toFixed(1)}
+            releaseDate={singleMovie.release_date}
           />
           <section className="extra-info-container">
-            <p>{this.state.singleMovie.overview}</p>
+            <p>{singleMovie.overview}</p>
             <p>{genres}</p>
-            <p>runtime: {this.state.singleMovie.runtime}</p>
+            <p>runtime: {singleMovie.runtime}</p>
+            <iframe width="420 height" height="315" src={trailerToPlay}></iframe>
           </section>
         </main>
         <Footer />
       </div>
     )
-  }
+  // }
 }
 
 export default MovieSnapShot;
