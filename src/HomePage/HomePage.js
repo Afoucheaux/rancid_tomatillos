@@ -3,6 +3,7 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import MovieCard from "../MovieCard/MovieCard";
 import "./HomePage.css";
+import { getMovieData } from "../apiCalls";
 
 
 class HomePage extends Component {
@@ -15,8 +16,7 @@ class HomePage extends Component {
   }
 
   componentDidMount() {
-    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-    .then(response => response.json())
+    getMovieData()
     .then(movieData => {
       this.setState({movies: movieData.movies})
     })
