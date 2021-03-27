@@ -10,7 +10,8 @@ class App extends Component {
     this.state = {
       clickedMovieId: "",
       singleMovie: {},
-      trailer: {}
+      trailer: {},
+      error: ""
     }
   }
 
@@ -20,7 +21,7 @@ class App extends Component {
         const [singleMovie, trailer] = data;
           this.setState({clickedMovieId: id, singleMovie: singleMovie.movie, trailer: trailer.videos[0]})
       })
-      .catch(error => console.log(error))
+      .catch(error => this.setState({error: error.message}) )
   }
 
   onHomeClick = () => {
@@ -31,7 +32,7 @@ class App extends Component {
     return (
       <>
         {!this.state.clickedMovieId ?
-        <HomePage onMovieClick={this.onMovieClick}/> : <MovieSnapShot singleMovie={this.state.singleMovie} trailer={this.state.trailer} onHomeClick={this.onHomeClick}/>}
+        <HomePage onMovieClick={this.onMovieClick}/> : <MovieSnapShot singleMovie={this.state.singleMovie} trailer={this.state.trailer} onHomeClick={this.onHomeClick} error={this.state.error}/>}
       </>
     )
   }

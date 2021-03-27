@@ -6,13 +6,14 @@ import "./MovieSnapShot.css";
 
 
 
-    const MovieSnapShot = ({ singleMovie, trailer, onHomeClick }) => {
+    const MovieSnapShot = ({ singleMovie, trailer, onHomeClick, error}) => {
     const trailerToPlay = `https://www.youtube.com/embed/${trailer.key}`;
     const genres = singleMovie.genres.join(" | ");
      return (
       <div className="background-img" style={{backgroundImage: `url(${singleMovie.backdrop_path})`}}>
         <Header onHomeClick={onHomeClick}/>
         <main className="single-movie-container">
+          {error && <h1>There was an issue, please refresh and try again</h1>}
           <MovieCard
             key={singleMovie.id}
             id={singleMovie.id}
