@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import MovieCard from "../MovieCard/MovieCard";
-import movieData from "../data/movies.js";
+// import movieData from "../data/movies.js";
 import "./HomePage.css";
 
 
@@ -10,8 +10,20 @@ class HomePage extends Component {
   constructor(props) {
     super(props)
     this.state= {
-      movies: movieData.movies,
+      movies: [],
+      error: ''
     }
+  }
+
+  componentDidMount() {
+    fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
+    .then(response => response.json())
+    .then(movieData => {
+      this.setState({movies: movieData.movies})
+    })
+    .catch(error => {
+      this.setState({error: error.message})
+    })
   }
 
   handleMovieClick = (event) => {
@@ -39,6 +51,8 @@ class HomePage extends Component {
        <>
         <Header hide={"hidden"}/>
         <main className="movies-container">
+          {!this.state.error && !this.state.movies.length && <h1>Loading...</h1>}
+          {this.state.error && <h1>Oops! We are broke! Please refer to the contact below and hire us</h1>}
           {this.displayMovies()}
         </main>
         <Footer/>
