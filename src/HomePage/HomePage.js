@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import MovieCard from "../MovieCard/MovieCard";
-// import movieData from "../data/movies.js";
 import "./HomePage.css";
 
 
