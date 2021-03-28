@@ -4,7 +4,7 @@ import Footer from "../Footer/Footer";
 import MovieCard from "../MovieCard/MovieCard";
 import "./HomePage.css";
 import { getMovieData } from "../apiCalls";
-
+import PropTypes from "prop-types";
 
 class HomePage extends Component {
   constructor(props) {
@@ -63,3 +63,7 @@ class HomePage extends Component {
 }
 
 export default HomePage;
+
+HomePage.propTypes = {
+  onMovieClick: PropTypes.func.isRequired
+}
