@@ -6,7 +6,6 @@
   -12px -12px 25px 1px rgba(194, 3, 252, .2);
   width: 20%;
   border-radius: 5px;
-  padding: 1%;
 }
 
 .card-image {
@@ -23,6 +22,9 @@
 
 .card-container:hover {
   width: 21%;
+  padding: 1%;
+  box-shadow: 12px 12px 25px 1px rgba(194, 3, 252, .9),
+  -12px -12px 25px 1px rgba(194, 3, 252, .4);
 }
 
 .card-image:hover {
@@ -33,7 +35,7 @@
 @media only screen and (max-width: 1040px) {
 
   .card-container {
-    width: 23%;
+    width: 22%;
   }
 
   .card-image {
@@ -41,7 +43,8 @@
   }
 
   .card-container:hover {
-    width: 24%;
+    width: 23%;
+    padding: 1%;
   }
 
   .card-image:hover {
@@ -63,6 +66,10 @@
   .card-image {
     object-fit: contain;
     height: 50vh;
+  }
+
+  .card-container:hover {
+    width: 98%;
   }
 
 }
