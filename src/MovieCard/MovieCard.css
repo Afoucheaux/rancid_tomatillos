@@ -4,8 +4,9 @@
   margin: 1%;
   box-shadow: 12px 12px 25px 1px rgba(194, 3, 252, .2),
   -12px -12px 25px 1px rgba(194, 3, 252, .2);
-  width: 22%;
+  width: 20%;
   border-radius: 5px;
+  padding: 1%;
 }
 
 .card-image {
@@ -20,15 +21,32 @@
   margin: 0px 0px 5px 20px;
 }
 
+.card-container:hover {
+  width: 21%;
+}
 
-@media only screen and (max-width: 940px) {
+.card-image:hover {
+  margin: 0% 5% 0% 5%;
+  object-fit: cover;
+}
+
+@media only screen and (max-width: 1040px) {
 
   .card-container {
-    width: 30%;
+    width: 23%;
   }
 
   .card-image {
     object-fit: contain;
+  }
+
+  .card-container:hover {
+    width: 24%;
+  }
+
+  .card-image:hover {
+    margin: 0% 5% 0% 5%;
+    object-fit: cover;
   }
 
 }
@@ -43,7 +61,7 @@
   }
 
   .card-image {
-    width: 90%;
+    object-fit: contain;
     height: 50vh;
   }
 
