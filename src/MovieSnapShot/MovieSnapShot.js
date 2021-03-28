@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import MovieCard from "../MovieCard/MovieCard";
@@ -28,7 +28,7 @@ import PropTypes from "prop-types";
             imageStyle={"no-image-hover"}
           />
           <section className="extra-info-container">
-             <iframe className="extra-info-trailer" src={trailerToPlay} aria-label={`${singleMovie.title} trailer`}></iframe>
+             <iframe className="extra-info-trailer" src={trailerToPlay} title="Movie Trailer" aria-label={`${singleMovie.title} trailer`}></iframe>
             <p className="extra-info">{singleMovie.overview}</p>
             <p className="extra-info">{genres}</p>
             <p className="extra-info">Runtime: {singleMovie.runtime} min</p>
@@ -43,6 +43,9 @@ import PropTypes from "prop-types";
 
 export default MovieSnapShot;
 
-// MovieSnapShot.PropTypes = {
-//   error: PropTypes.string
-// }
+MovieSnapShot.propTypes = {
+  singleMovie: PropTypes.object,
+  trailer: PropTypes.object,
+  onHomeClick: PropTypes.func,
+  error: PropTypes.string
+}
