@@ -41,6 +41,7 @@ class HomePage extends Component {
         releaseDate={movie.release_date}
         handleMovieClick={this.handleMovieClick}
         classStyle={"card-container"}
+        imageStyle={"card-image"}
       />
     })
     return movieList;
