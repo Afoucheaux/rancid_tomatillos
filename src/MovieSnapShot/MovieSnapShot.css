@@ -1,27 +1,30 @@
 .background-img {
-  height: 100vh; 
+  height: 100vh;
 }
 
 .single-movie-container {
   display: flex;
   align-items: center;
-  justify-content: space-around; 
+  justify-content: space-around;
 }
 
 .extra-info-container {
-  width: 70%;
-  margin-top: 30px; 
+  width: 60%;
+  margin-top: 30px;
 }
 
 .card-container-single-movie {
- background-color: rgba(0, 0, 0);
- border-radius: 5px; 
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  background-color: rgba(0, 0, 0);
+  border-radius: 5px;
 }
 
 .extra-info-trailer {
-  margin: 0px; 
-  width: 75%;
-  height: 325px; 
+  margin: 0px;
+  width: 100%;
+  height: 325px;
 }
 
 .extra-info-overview {
@@ -29,8 +32,17 @@
 }
 
 .extra-info {
-  font-size: 1.2em; 
+  font-size: 1.2em;
 }
+
+.no-image-hover {
+  padding: 0;
+  margin: 15px 0px 5px 0px;
+  border-radius: 5px 5px 0px 0px;
+  height: 35vh;
+  object-fit: cover;
+}
+
 
 @media screen and (max-width: 900px) {
   .single-movie-container {
@@ -40,11 +52,11 @@
   .extra-info-container {
     width: 95%;
   }
-  
+
   .extra-info-trailer {
     width: 80%;
-    display: block; 
-    margin: auto; 
+    display: block;
+    margin: auto;
   }
 }
 
@@ -53,4 +65,3 @@
     width: 100%;
   }
 }
-
