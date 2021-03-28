@@ -4,7 +4,7 @@
   align-items: center;
   padding: 5px 30px;
   background-color: rgb(0, 0, 0, .6);
-  text-shadow: 0 0 40px rgba(255,255,255);
+  text-shadow: 0 0 40px rgb(255,255,255);
 }
 
 .header-title {
@@ -17,7 +17,7 @@
 .header-title-letter {
   color: rgba(194, 3, 252);
   font-weight: 800;
-  text-shadow: 0 0 35px rgba(194, 3, 252);
+  text-shadow: 0 0 35px rgb(194, 3, 252);
 }
 
 .home-btn {
