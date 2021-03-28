@@ -28,10 +28,10 @@ import "./MovieSnapShot.css";
             classStyle={"card-container-single-movie"}
           />
           <section className="extra-info-container">
-            <iframe width="620 height" height="315" src={trailerToPlay}></iframe>
-            <p>{singleMovie.overview}</p>
-            <p>{genres}</p>
-            <p>Runtime: {singleMovie.runtime} min</p>
+            <iframe className="extra-info-trailer" src={trailerToPlay}></iframe>
+            <p className="extra-info">{singleMovie.overview}</p>
+            <p className="extra-info">{genres}</p>
+            <p className="extra-info">Runtime: {singleMovie.runtime} min</p>
           </section>
         </main>
         <Footer />
