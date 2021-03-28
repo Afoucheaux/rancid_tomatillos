@@ -9,8 +9,12 @@ import "./MovieSnapShot.css";
     const MovieSnapShot = ({ singleMovie, trailer, onHomeClick, error}) => {
     const trailerToPlay = `https://www.youtube.com/embed/${trailer.key}`;
     const genres = singleMovie.genres.join(" | ");
+    const styles = {
+      background:`-webkit-linear-gradient(rgba(0,0,0, .3) 0%,rgba(0,0,0, 1) 100%), url(${singleMovie.backdrop_path}) no-repeat center center fixed`, 
+      backgroundSize: "cover"
+    }
      return (
-      <div className="background-img" style={{backgroundImage: `url(${singleMovie.backdrop_path})`}}>
+      <div className="background-img" style={styles}>
         <Header onHomeClick={onHomeClick}/>
         <main className="single-movie-container">
           {error && <h1>There was an issue, please refresh and try again</h1>}
@@ -21,12 +25,13 @@ import "./MovieSnapShot.css";
             title={singleMovie.title}
             averageRating={singleMovie.average_rating.toFixed(1)}
             releaseDate={singleMovie.release_date}
+            classStyle={"card-container-single-movie"}
           />
           <section className="extra-info-container">
+            <iframe width="620 height" height="315" src={trailerToPlay}></iframe>
             <p>{singleMovie.overview}</p>
             <p>{genres}</p>
-            <p>runtime: {singleMovie.runtime}</p>
-            <iframe width="420 height" height="315" src={trailerToPlay}></iframe>
+            <p>Runtime: {singleMovie.runtime} min</p>
           </section>
         </main>
         <Footer />
