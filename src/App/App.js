@@ -3,6 +3,7 @@ import "./App.css";
 import HomePage from "../HomePage/HomePage";
 import MovieSnapShot from "../MovieSnapShot/MovieSnapShot";
 import { getSingleMovieData } from "../apiCalls";
+import { trailerCleaner} from "../utility"
 
 class App extends Component {
   constructor() {
@@ -19,7 +20,8 @@ class App extends Component {
     getSingleMovieData(id)
       .then(data => {
         const [singleMovie, trailer] = data;
-          this.setState({clickedMovieId: id, singleMovie: singleMovie.movie, trailer: trailer.videos[0]})
+        const cleanedTrailer = trailerCleaner(trailer);
+        this.setState({clickedMovieId: id, singleMovie: singleMovie.movie, trailer: cleanedTrailer[0]})
       })
       .catch(error => this.setState({error: error.message}) )
   }
