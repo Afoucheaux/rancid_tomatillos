@@ -4,8 +4,6 @@ import Footer from "../Footer/Footer";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieSnapShot.css";
 
-
-
     const MovieSnapShot = ({ singleMovie, trailer, onHomeClick, error}) => {
     const trailerToPlay = `https://www.youtube.com/embed/${trailer.key}`;
     const genres = singleMovie.genres.join(" | ");
