@@ -40,6 +40,7 @@ class HomePage extends Component {
         averageRating={movie.average_rating.toFixed(1)}
         releaseDate={movie.release_date}
         handleMovieClick={this.handleMovieClick}
+        classStyle={"card-container"}
       />
     })
     return movieList;
