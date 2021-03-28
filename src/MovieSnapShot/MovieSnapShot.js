@@ -28,7 +28,7 @@ import "./MovieSnapShot.css";
             classStyle={"card-container-single-movie"}
           />
           <section className="extra-info-container">
-            <iframe className="extra-info-trailer" src={trailerToPlay}></iframe>
+            <iframe className="extra-info-trailer" src={trailerToPlay} aria-label={`${singleMovie.title} trailer`}></iframe>
             <p className="extra-info">{singleMovie.overview}</p>
             <p className="extra-info">{genres}</p>
             <p className="extra-info">Runtime: {singleMovie.runtime} min</p>
