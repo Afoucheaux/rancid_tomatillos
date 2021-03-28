@@ -3,7 +3,8 @@ import "./App.css";
 import HomePage from "../HomePage/HomePage";
 import MovieSnapShot from "../MovieSnapShot/MovieSnapShot";
 import { getSingleMovieData } from "../apiCalls";
-import { singleMovieCleaner } from "../utility.js";
+import { singleMovieCleaner, trailerCleaner } from "../utility.js";
+
 
 class App extends Component {
   constructor() {
@@ -21,7 +22,8 @@ class App extends Component {
       .then(data => {
         const [singleMovie, trailer] = data
         const cleanedSingleMovie = singleMovieCleaner(singleMovie);  
-          this.setState({clickedMovieId: id, singleMovie: cleanedSingleMovie, trailer: trailer.videos[0]})
+        const cleanedTrailer = trailerCleaner(trailer);
+        this.setState({clickedMovieId: id, singleMovie: cleanedSingleMovie, trailer: cleanedTrailer[0]})
       })
       .catch(error => this.setState({error: error.message}) )
   }
