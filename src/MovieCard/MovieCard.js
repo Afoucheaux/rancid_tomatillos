@@ -1,5 +1,6 @@
 import React from "react";
-import "./MovieCard.css"
+import "./MovieCard.css";
+import PropTypes from "prop-types";
 
 const MovieCard = ({id, posterImage, title, averageRating, releaseDate, handleMovieClick, classStyle, imageStyle}) => {
   return (
@@ -13,3 +14,15 @@ const MovieCard = ({id, posterImage, title, averageRating, releaseDate, handleMo
 }
 
 export default MovieCard
+
+MovieCard.propTypes = {
+  key: PropTypes.number,
+  id: PropTypes.number,
+  posterImage: PropTypes.string,
+  title: PropTypes.string,
+  averageRating: PropTypes.number,
+  releaseDate: PropTypes.string,
+  handleMovieClick: PropTypes.string,
+  classStyle: PropTypes.string,
+  imageStyle: PropTypes.string
+};
