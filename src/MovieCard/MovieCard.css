@@ -33,6 +33,11 @@
   -12px -12px 50px 1px rgba(194, 3, 252, .4);
 }
 
+.card-image:hover {
+  margin: 0% 5% 0% 5%;
+  object-fit: cover;
+}
+
 @media only screen and (min-width: 1750px) {
 
   .card-container {
@@ -44,17 +49,11 @@
   }
 
   .card-container:hover {
-    width: 18%;
+    width: 16%;
     padding: 1%;
   }
 
-  .card-image:hover {
-    margin: 0% 5% 0% 5%;
-    object-fit: cover;
-  }
-
 }
-
 
 @media only screen and (max-width: 900px) {
 
@@ -69,11 +68,6 @@
   .card-container:hover {
     width: 32%;
     padding: 1%;
-  }
-
-  .card-image:hover {
-    margin: 0% 5% 0% 5%;
-    object-fit: cover;
   }
 
 }
