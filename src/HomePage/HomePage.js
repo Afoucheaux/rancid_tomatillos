@@ -4,11 +4,10 @@ import Footer from "../Footer/Footer";
 import MovieCard from "../MovieCard/MovieCard";
 import "./HomePage.css";
 import { getMovieData } from "../apiCalls";
-import PropTypes from "prop-types";
 
 class HomePage extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state= {
       movies: [],
       error: ''
@@ -25,10 +24,6 @@ class HomePage extends Component {
     })
   }
 
-  handleMovieClick = (event) => {
-    const idToPass = event.target.parentNode.id;
-    this.props.onMovieClick(idToPass);
-  }
 
   displayMovies = () => {
     const movieList = this.state.movies.map(movie => {
@@ -39,7 +34,6 @@ class HomePage extends Component {
         title={movie.title}
         averageRating={movie.average_rating.toFixed(1)}
         releaseDate={movie.release_date}
-        handleMovieClick={this.handleMovieClick}
         classStyle={"card-container"}
         imageStyle={"card-image"}
       />
@@ -53,7 +47,7 @@ class HomePage extends Component {
         <Header hide={"hidden"}/>
         <main className="movies-container">
           {!this.state.error && !this.state.movies.length && <h1>Loading...</h1>}
-          {this.state.error && <h1>Oops! We are broke! Please refer to the contact below and hire us</h1>}
+          {this.state.error && <h1>Oops! We are broke! Please refer to the contact below and hire us..get it..we are broke</h1>}
           {this.displayMovies()}
         </main>
         <Footer/>
@@ -64,6 +58,4 @@ class HomePage extends Component {
 
 export default HomePage;
 
-HomePage.propTypes = {
-  onMovieClick: PropTypes.func.isRequired
-}
+

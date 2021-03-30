@@ -1,13 +1,14 @@
 import React from "react";
 import "./Header.css";
-import PropTypes from "prop-types" 
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
-const Header = ({ hide, onHomeClick }) => {
+const Header = ({ hide}) => {
   return (
     <header className="header">
       <h1 className="header-title"><span className="header-title-letter">R</span>OTTON <span className="header-title-letter">T</span>OMATILLOS</h1>
       <div>
-        <button onClick={onHomeClick} className={`home-btn ${hide}`}>Home</button>
+        <Link to="/" className={`home-btn ${hide}`}>Home</Link>
       </div>
     </header>
   )
@@ -16,6 +17,5 @@ const Header = ({ hide, onHomeClick }) => {
 export default Header;
 
 Header.propTypes = {
-  onHomeClick: PropTypes.func,
   hide: PropTypes.string
 }
