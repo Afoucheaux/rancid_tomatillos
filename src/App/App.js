@@ -4,42 +4,18 @@ import HomePage from "../HomePage/HomePage";
 import MovieSnapShot from "../MovieSnapShot/MovieSnapShot";
 import { getSingleMovieData } from "../apiCalls";
 import { singleMovieCleaner, trailerCleaner } from "../utility.js";
+import { Route } from "react-router-dom";
 
 
-class App extends Component {
-  constructor() {
-    super()
-    this.state = {
-      clickedMovieId: "",
-      singleMovie: {},
-      trailer: {},
-      error: ""
-    }
-  }
+const App = () => {
+  return (
+    <>
+      <Route exact path="/" render={ () => <HomePage/>}/>
+      <Route exact path="/:id" render={({ match }) => 
+      <MovieSnapShot id={match.params.id}/>}/>
+    </>
+   )
 
-  onMovieClick = (id) => {
-    getSingleMovieData(id)
-      .then(data => {
-        const [singleMovie, trailer] = data
-        const cleanedSingleMovie = singleMovieCleaner(singleMovie);  
-        const cleanedTrailer = trailerCleaner(trailer);
-        this.setState({clickedMovieId: id, singleMovie: cleanedSingleMovie, trailer: cleanedTrailer[0]})
-      })
-      .catch(error => this.setState({error: error.message}) )
-  }
-
-  onHomeClick = () => {
-    this.setState({ clickedMovieId: "" })
-  }
-
-  render() {
-    return (
-      <>
-        {!this.state.clickedMovieId ?
-        <HomePage onMovieClick={this.onMovieClick}/> : <MovieSnapShot singleMovie={this.state.singleMovie} trailer={this.state.trailer} onHomeClick={this.onHomeClick} error={this.state.error}/>}
-      </>
-    )
-  }
 }
 
 export default App;
