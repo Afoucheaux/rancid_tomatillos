@@ -53,7 +53,7 @@ class HomePage extends Component {
         <Header hide={"hidden"}/>
         <main className="movies-container">
           {!this.state.error && !this.state.movies.length && <h1>Loading...</h1>}
-          {this.state.error && <h1>Oops! We are broke! Please refer to the contact below and hire us</h1>}
+          {this.state.error && <h1>Oops! We are broke! Please refer to the contact below and hire us..get it..we are broke</h1>}
           {this.displayMovies()}
         </main>
         <Footer/>
