@@ -21,7 +21,7 @@ MovieCard.propTypes = {
   id: PropTypes.number,
   posterImage: PropTypes.string,
   title: PropTypes.string,
-  averageRating: PropTypes.number,
+  averageRating: PropTypes.string,
   releaseDate: PropTypes.string,
   handleMovieClick: PropTypes.string,
   classStyle: PropTypes.string,

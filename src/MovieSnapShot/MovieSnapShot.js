@@ -20,8 +20,6 @@ class MovieSnapShot extends Component {
 
   componentDidMount() {
     const id = this.props.id
-    console.log("test")
-    console.log(id);
     getSingleMovieData(id)
     .then(data => {
       const [singleMovie, trailer] = data
@@ -32,7 +30,7 @@ class MovieSnapShot extends Component {
     .catch(error => this.setState({error: error.message}) )
   }
 
-  render () {  
+  render () { 
    if(!this.state.clickedMovieId) {
     return (<h1>Loading movie....</h1>)
   } else {
@@ -74,9 +72,8 @@ class MovieSnapShot extends Component {
     
 export default MovieSnapShot;
 
-// MovieSnapShot.propTypes = {
-//   singleMovie: PropTypes.object,
-//   trailer: PropTypes.object,
-//   onHomeClick: PropTypes.func,
-//   error: PropTypes.string
-// }
+MovieSnapShot.propTypes = {
+  id: PropTypes.string,
+  onHomeClick: PropTypes.func,
+  
+}
