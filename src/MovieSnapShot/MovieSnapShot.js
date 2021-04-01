@@ -9,7 +9,7 @@ import { singleMovieCleaner, trailerCleaner } from "../utility.js";
 
 class MovieSnapShot extends Component {
   constructor(props) {
-    super(props) 
+    super(props)
     this.state= {
       clickedMovieId: "",
       singleMovie: {},
@@ -23,14 +23,14 @@ class MovieSnapShot extends Component {
     getSingleMovieData(id)
     .then(data => {
       const [singleMovie, trailer] = data
-      const cleanedSingleMovie = singleMovieCleaner(singleMovie);  
+      const cleanedSingleMovie = singleMovieCleaner(singleMovie);
       const cleanedTrailer = trailerCleaner(trailer);
       this.setState({clickedMovieId: id, singleMovie: cleanedSingleMovie, trailer: cleanedTrailer[0]})
     })
     .catch(error => this.setState({error: error.message}) )
   }
 
-  render () { 
+  render () {
    if(!this.state.clickedMovieId) {
     return (<h1>Loading movie....</h1>)
   } else {
@@ -65,15 +65,15 @@ class MovieSnapShot extends Component {
         <Footer />
       </div>
     )
-  }   
+  }
   }
 }
-    
-    
+
+
 export default MovieSnapShot;
 
 MovieSnapShot.propTypes = {
   id: PropTypes.string,
   onHomeClick: PropTypes.func,
-  
+
 }
