@@ -64,7 +64,6 @@ describe('Rancid Tomatillos', () => {
    cy.contains('Maratón After')
    cy.contains('Rating | 4.3')
    cy.contains('Released | 2020-09-03')
-
   })
 
 });
