@@ -57,9 +57,9 @@ class MovieSnapShot extends Component {
           />
           <section className="extra-info-container">
               <iframe className="extra-info-trailer" src={trailerToPlay} title="Movie Trailer" aria-label={`${this.state.singleMovie.title} trailer`}></iframe>
-            <p className="extra-info">{this.state.singleMovie.overview}</p>
-            <p className="extra-info">{genres}</p>
-            <p className="extra-info">Runtime: {this.state.singleMovie.runtime} min</p>
+            <p className="extra-info" data-cy="overview">{this.state.singleMovie.overview}</p>
+            <p className="extra-info" data-cy="genre">{genres}</p>
+            <p className="extra-info" data-cy="runtime">Runtime: {this.state.singleMovie.runtime} min</p>
           </section>
         </main>
         <Footer />

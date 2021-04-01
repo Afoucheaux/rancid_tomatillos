@@ -56,8 +56,15 @@ describe('Rancid Tomatillos', () => {
 
   it('Should be able to click a link', () => {
     cy.get('img').click()
-    .wait(3000)
-    .get('h1').contains('Loading movie....')
+    // .wait(1000)
+    cy.get('iframe').should('have.attr', 'src').should('include','https://www.youtube.com/embed/aETz_dRDEys')
+    .get('[data-cy=overview]').contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.")
+    .get('[data-cy=genre]').contains("Action")
+    .get('[data-cy=runtime]').contains(82)
+    cy.get('img').should('be.visible')
+    cy.contains('Money Plane')
+    cy.contains('Rating | 6.1')
+    cy.contains('Released | 2020-09-29')
   })
 
 });
