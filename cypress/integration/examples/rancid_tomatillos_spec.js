@@ -39,29 +39,30 @@ describe('Rancid Tomatillos', () => {
     cy.visit('http://localhost:3000')
   });
 
-  it('Should have a loading message', () => {
-    cy.get('h1').contains('Loading...')
-  });
-
-  it('Should load a page title in the header', () => {
-    cy.get('h1').contains('ROTTON TOMATILLOS')
-  });
-
   it('Should load movie cards from the api data base', () => {
+    cy.get('[data-cy=page-load-message]').contains('Loading...')
+    cy.get('[data-cy=title]').contains('ROTTON TOMATILLOS')
     cy.get('img').should('be.visible')
     cy.contains('Money Plane')
     cy.contains('Rating | 6.1')
     cy.contains('Released | 2020-09-29')
   });
 
-  it('Should be able to click a link', () => {
+  it('Should be able to click a link and see the movie snap shot', () => {
     cy.get('img').click()
-    // .wait(1000)
     cy.get('iframe').should('have.attr', 'src').should('include','https://www.youtube.com/embed/aETz_dRDEys')
     .get('[data-cy=overview]').contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.")
     .get('[data-cy=genre]').contains("Action")
     .get('[data-cy=runtime]').contains(82)
     cy.get('img').should('be.visible')
+    cy.contains('Money Plane')
+    cy.contains('Rating | 6.1')
+    cy.contains('Released | 2020-09-29')
+  })
+
+  it('Should return to home page when home link is clicked', () => {
+    cy.get('img').click()
+    cy.get('[data-cy=home-button]').click()
     cy.contains('Money Plane')
     cy.contains('Rating | 6.1')
     cy.contains('Released | 2020-09-29')
