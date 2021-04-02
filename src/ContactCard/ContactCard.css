@@ -1,0 +1,11 @@
+.contact-card {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  margin: 8%;
+  padding: 1%;
+  width: 60%;
+  height: 40vh;
+  box-shadow: 12px 12px 25px 1px rgba(194, 3, 252, .9),
+  -12px -12px 25px 1px rgba(194, 3, 252, .4);
+}
