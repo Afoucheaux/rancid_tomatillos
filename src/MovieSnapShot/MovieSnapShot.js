@@ -32,7 +32,7 @@ class MovieSnapShot extends Component {
 
   render () {
    if(!this.state.clickedMovieId) {
-    return (<h1>Loading movie....</h1>)
+    return (<h1 data-cy="loading-single">Loading movie....</h1>)
   } else {
     const trailerToPlay = `https://www.youtube.com/embed/${this.state.trailer.key}`;
     const genres = this.state.singleMovie.genres.join(" | ");

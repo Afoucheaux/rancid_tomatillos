@@ -43,7 +43,6 @@ describe('Rancid Tomatillos', () => {
     cy.contains('Money Plane')
     cy.contains('Rating | 6.1')
     cy.contains('Released | 2020-09-29')
-
   });
 
   it('Should return to home page when home link is clicked', () => {
@@ -57,13 +56,13 @@ describe('Rancid Tomatillos', () => {
   })
 
   it("Should click a movie with incomplete data and see a movie snap shot", () => {
-   cy.seedAndVisitSad()
-   cy.get('img').eq(1).click()
-   cy.get('iframe').should('have.attr', 'src').should('include','https://www.youtube.com/embed/000000')
-   .get('[data-cy=runtime]').contains("unavailable")
-   cy.contains('Maratón After')
-   cy.contains('Rating | 4.3')
-   cy.contains('Released | 2020-09-03')
-  })
+    cy.seedAndVisitSad()
+    cy.get('img').eq(1).click()
+    cy.get('iframe').should('have.attr', 'src').should('include','https://www.youtube.com/embed/000000')
+    .get('[data-cy=runtime]').contains("unavailable")
+    cy.contains('Maratón After')
+    cy.contains('Rating | 4.3')
+    cy.contains('Released | 2020-09-03')
+  });
 
 });
