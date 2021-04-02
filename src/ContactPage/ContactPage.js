@@ -11,7 +11,6 @@ const ContactPage = () => {
       <div className="contact-container">
         <ContactCard />
       </div>
-      <Footer />
     </>
   )
 }
