@@ -31,6 +31,7 @@ class MovieSnapShot extends Component {
   }
 
   render () {
+    console.log(this.state)
    if(!this.state.clickedMovieId) {
     return (<h1 data-cy="loading-single">Loading movie....</h1>)
   } else {
@@ -56,7 +57,7 @@ class MovieSnapShot extends Component {
             imageStyle={"no-image-hover"}
           />
           <section className="extra-info-container">
-              <iframe className="extra-info-trailer" src={trailerToPlay} title="Movie Trailer" aria-label={`${this.state.singleMovie.title} trailer`}></iframe>
+              <iframe className="extra-info-trailer" src={trailerToPlay} title="Movie Trailer" aria-label={`${this.state.singleMovie.title} trailer`} data-cy="trailer"></iframe>
             <p className="extra-info" data-cy="overview">{this.state.singleMovie.overview}</p>
             <p className="extra-info" data-cy="genre">{genres}</p>
             <p className="extra-info" data-cy="runtime">Runtime: {this.state.singleMovie.runtime} min</p>
