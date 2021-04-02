@@ -12,3 +12,5 @@ Cypress.Commands.add("seedAndVisitSad", () => {
   cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture:"movies_happy.js"})
   cy.visit('http://localhost:3000/')
 })
+
+
