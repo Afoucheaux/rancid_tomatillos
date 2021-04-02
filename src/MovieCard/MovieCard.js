@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const MovieCard = ({id, posterImage, title, averageRating, releaseDate, classStyle, imageStyle}) => {
   return (
       <Link to={`/${id}`} className={classStyle}>
-        <img className= {imageStyle} src={posterImage} alt={`movie poster for ${title}`}/>
+        <img className= {imageStyle} src={posterImage} alt={`movie poster for ${title}`} data-cy="poster"/>
         <p className="movie-title">{title}</p>
         <p className="card-text">Rating | {averageRating}</p>
         <p className="card-text">Released | {releaseDate}</p>
