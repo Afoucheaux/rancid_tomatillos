@@ -12,7 +12,7 @@ describe("Rancid Tomatillos", () => {
   });
 
   it("Should be able to click a link and see the movie snap shot", () => {
-    cy.seedAndVisitHappy() 
+    cy.seedAndVisitHappy()
     cy.get("[data-cy=poster]").first().click()
     cy.get("[data-cy=poster]").should("have.length", 1)
     cy.get(".background-img").should("have.css", "background").should("include","https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg")
@@ -56,7 +56,7 @@ describe("Rancid Tomatillos", () => {
     cy.go("back")
     cy.url().should("eq", "http://localhost:3000/694919")
   })
-    
+
 });
 
 describe("Home page error message", () => {
@@ -79,8 +79,8 @@ describe("Home page error message", () => {
 });
 
 describe("Single movie error message", () => {
-  it("Should display an error message for a 500 server status", () => {
 
+  it("Should display an error message for a 500 server status", () => {
     cy.intercept(
       {
         method: "GET",
@@ -95,4 +95,22 @@ describe("Single movie error message", () => {
     cy.get("[data-cy=poster]").first().click()
     cy.get("[data-cy=single-movie-error]").contains("There was an issue, please refresh and try again")
   })
+})
+
+describe("Contact Page", () => {
+
+  it("Should open the contact page when any page and return to home screen", () => {
+    cy.seedAndVisitHappy()
+    cy.get("[data-cy=contact-button]").click()
+    cy.contains("Elizabeth Hahn")
+    cy.contains("Aaron Foucheaux")
+    cy.contains("Home")
+    cy.get("[data-cy=contact-button]").should("not.exist")
+    cy.get("[data-cy=home-button]").click()
+    cy.get("[data-cy=poster]").first().click()
+    cy.get("[data-cy=contact-button]").click()
+    cy.contains("Elizabeth Hahn")
+    cy.contains("Aaron Foucheaux")
+  })
+
 })
