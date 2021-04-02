@@ -24,7 +24,6 @@ class HomePage extends Component {
     })
   }
 
-
   displayMovies = () => {
     const movieList = this.state.movies.map(movie => {
       return <MovieCard
