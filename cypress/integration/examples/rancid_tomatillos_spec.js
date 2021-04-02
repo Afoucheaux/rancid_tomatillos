@@ -34,12 +34,24 @@ describe('Rancid Tomatillos', () => {
 
   it('Should be able to click a link and see the movie snap shot', () => {
     cy.seedAndVisitHappy()
+
+    // cy.intercept('GET','https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', {fixture:"trailer_happy.js"}).as("trailer")
+    // cy.wait(2000)
+    // cy.intercept('GET','https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {fixture:"single_movie_happy.js"}).as("singlemovie")
+    // cy.wait(2000)
+    // cy.intercept('GET','https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture:"movies_happy.js"}).as("movies")
+    // cy.visit('http://localhost:3000')
+
+    // cy.visit('http://localhost:3000')
+    
     cy.get('img').first().click()
-    cy.get('iframe').should('have.attr', 'src').should('include','https://www.youtube.com/embed/aETz_dRDEys')
+    cy.get('img').should('have.length', 1)
+    cy.get('.background-img').should('have.css', 'background').should('include','https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg')
+    cy.get('[data-cy="trailer"]').should('have.attr', 'src').should('include','https://www.youtube.com/embed/aETz_dRDEys')
     .get('[data-cy=overview]').contains("A professional thief with $40 million in debt and his family's life on the line must commit one final heist - rob a futuristic airborne casino filled with the world's most dangerous criminals.")
     .get('[data-cy=genre]').contains("Action")
     .get('[data-cy=runtime]').contains(82)
-    cy.get('img').should('be.visible')
+    .get('img').should('be.visible')
     cy.contains('Money Plane')
     cy.contains('Rating | 6.1')
     cy.contains('Released | 2020-09-29')
@@ -53,16 +65,18 @@ describe('Rancid Tomatillos', () => {
     cy.contains('Rating | 6.1')
     cy.contains('Released | 2020-09-29')
     cy.get('[data-cy=home-button]').should("not.be.visible")
+    cy.get('[data-cy="trailer"]').should('not.exist')
   })
 
-  it("Should click a movie with incomplete data and see a movie snap shot", () => {
+  it('Should click a movie with incomplete data and see a movie snap shot', () => {
     cy.seedAndVisitSad()
     cy.get('img').eq(1).click()
-    cy.get('iframe').should('have.attr', 'src').should('include','https://www.youtube.com/embed/000000')
+    cy.get('[data-cy="trailer"]').should('have.attr', 'src').should('include','https://www.youtube.com/embed/000000')
     .get('[data-cy=runtime]').contains("unavailable")
     cy.contains('Maratón After')
     cy.contains('Rating | 4.3')
     cy.contains('Released | 2020-09-03')
   });
+
 
 });
