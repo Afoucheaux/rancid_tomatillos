@@ -78,5 +78,17 @@ describe("Rancid Tomatillos", () => {
     cy.contains("Released | 2020-09-03")
   });
 
+  it("Can go forward an backward and display the correct url", () => {
+    cy.seedAndVisitHappy()
+    cy.go("forward")
+    cy.url().should("eq", "http://localhost:3000/")
+    cy.get("[data-cy=poster]").first().click()
+    cy.get("[data-cy=home-button]").click()
+    cy.go("back")
+    cy.url().should("eq", "http://localhost:3000/694919")
+  })
+    
+
+
 
 });
