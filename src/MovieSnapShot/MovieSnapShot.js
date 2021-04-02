@@ -31,7 +31,7 @@ class MovieSnapShot extends Component {
   }
 
   render () {
-   if(!this.state.clickedMovieId && !this.state.clickedMovieId) {
+   if(!this.state.error && !this.state.clickedMovieId) {
     return (<h1 data-cy="loading-single">Loading movie....</h1>)
   } else if(this.state.error && this.state.clickedMovieId) {
     return <h1 data-cy="single-movie-error">There was an issue, please refresh and try again</h1>

@@ -11,6 +11,21 @@ describe("Rancid Tomatillos", () => {
     cy.contains("Released | 2020-09-29")
   });
 
+  it.only("Should show a loading message when grabbing single movie data", () => {
+    //this intercepts api call to all movies
+    cy.intercept('GET','https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture:"movies_happy.js"}).as("movies")
+    cy.visit('http://localhost:3000')
+    
+    //this intercepts api calls to videos and single movie
+    cy.intercept('GET', 'https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', {fixture:"trailer_happy.js"})
+    cy.intercept('GET','https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {fixture:"single_movie_happy.js"}).as("singlemovie")
+
+    //here we click the movie and expect it to first flash loading movie before loading single movie data
+    cy.get("[data-cy=poster]").first().click()
+    cy.get("[data-cy=loading-single]").contains("Loading movie....")
+
+  })
+
   it("Should be able to click a link and see the movie snap shot", () => {
     cy.seedAndVisitHappy() 
     cy.get("[data-cy=poster]").first().click()
