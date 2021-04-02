@@ -8,9 +8,9 @@ const ContactCard = () => {
     <section className="contact-card">
       <article className="profile">
         <img className="profile-pic" src={aaron} alt="picture of A.F." />
-        <h3>Elizabath Hahn</h3>
-        <a className="pro-card" href="https://www.linkedin.com/in/elizabeth-s-hahn/">Elisabeth-Linkedin</a>
-        <a className="pro-card" href="https://github.com/elizhahn">Elisabeth-GitHub</a>
+        <h3>Elizabeth Hahn</h3>
+        <a className="pro-card" href="https://www.linkedin.com/in/elizabeth-s-hahn/">Elizabeth-Linkedin</a>
+        <a className="pro-card" href="https://github.com/elizhahn">Elizabeth-GitHub</a>
       </article>
       <article className="profile">
         <img className="profile-pic"src={aaron} alt="picture of A.F." />
