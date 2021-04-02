@@ -70,7 +70,6 @@ class MovieSnapShot extends Component {
   }
 }
 
-
 export default MovieSnapShot;
 
 MovieSnapShot.propTypes = {

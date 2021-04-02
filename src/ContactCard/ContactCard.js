@@ -4,7 +4,6 @@ import aaron from "../aaron.jpg";
 import elizabeth from "../elizabeth.png";
 
 const ContactCard = () => {
-  console.log(aaron);
   return (
     <section className="contact-card">
       <article className="profile">
