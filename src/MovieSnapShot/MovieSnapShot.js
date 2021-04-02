@@ -27,13 +27,14 @@ class MovieSnapShot extends Component {
       const cleanedTrailer = trailerCleaner(trailer);
       this.setState({clickedMovieId: id, singleMovie: cleanedSingleMovie, trailer: cleanedTrailer[0]})
     })
-    .catch(error => this.setState({error: error.message}) )
+    .catch(error => this.setState({clickedMovieId: id, error: error.message}) )
   }
 
   render () {
-    console.log(this.state)
-   if(!this.state.clickedMovieId) {
+   if(!this.state.clickedMovieId && !this.state.clickedMovieId) {
     return (<h1 data-cy="loading-single">Loading movie....</h1>)
+  } else if(this.state.error && this.state.clickedMovieId) {
+    return <h1 data-cy="single-movie-error">There was an issue, please refresh and try again</h1>
   } else {
     const trailerToPlay = `https://www.youtube.com/embed/${this.state.trailer.key}`;
     const genres = this.state.singleMovie.genres.join(" | ");
@@ -45,7 +46,6 @@ class MovieSnapShot extends Component {
       <div className="background-img" style={styles}>
         <Header/>
         <main className="single-movie-container">
-          {this.state.error && <h1>There was an issue, please refresh and try again</h1>}
           <MovieCard
             key={this.state.singleMovie.id}
             id={this.state.singleMovie.id}
