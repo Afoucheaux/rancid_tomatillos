@@ -7,12 +7,12 @@ export const getSingleMovieData = (id) => {
   .then(responses => Promise.all(responses.map(response => response.json())))
   }
 
- export const getMovieData = () => {
-   return fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
-   .then(response => {
-     if(response.ok) {
-       return response.json()
-     }
-     throw new Error("Something went wrong.")
- })
- }
+export const getMovieData = () => {
+  return fetch("https://rancid-tomatillos.herokuapp.com/api/v2/movies")
+  .then(response => {
+    if(response.ok) {
+     return response.json()
+    }
+    throw new Error("Something went wrong.")
+  })
+}
