@@ -9,7 +9,7 @@ import { singleMovieCleaner, trailerCleaner } from "../utility.js";
 
 class MovieSnapShot extends Component {
   constructor(props) {
-    super(props) 
+    super(props)
     this.state= {
       clickedMovieId: "",
       singleMovie: {},
@@ -23,16 +23,16 @@ class MovieSnapShot extends Component {
     getSingleMovieData(id)
     .then(data => {
       const [singleMovie, trailer] = data
-      const cleanedSingleMovie = singleMovieCleaner(singleMovie);  
+      const cleanedSingleMovie = singleMovieCleaner(singleMovie);
       const cleanedTrailer = trailerCleaner(trailer);
       this.setState({clickedMovieId: id, singleMovie: cleanedSingleMovie, trailer: cleanedTrailer[0]})
     })
     .catch(error => this.setState({error: error.message}) )
   }
 
-  render () { 
+  render () {
    if(!this.state.clickedMovieId) {
-    return (<h1>Loading movie....</h1>)
+    return (<h1 data-cy="loading-single">Loading movie....</h1>)
   } else {
     const trailerToPlay = `https://www.youtube.com/embed/${this.state.trailer.key}`;
     const genres = this.state.singleMovie.genres.join(" | ");
@@ -57,23 +57,23 @@ class MovieSnapShot extends Component {
           />
           <section className="extra-info-container">
               <iframe className="extra-info-trailer" src={trailerToPlay} title="Movie Trailer" aria-label={`${this.state.singleMovie.title} trailer`}></iframe>
-            <p className="extra-info">{this.state.singleMovie.overview}</p>
-            <p className="extra-info">{genres}</p>
-            <p className="extra-info">Runtime: {this.state.singleMovie.runtime} min</p>
+            <p className="extra-info" data-cy="overview">{this.state.singleMovie.overview}</p>
+            <p className="extra-info" data-cy="genre">{genres}</p>
+            <p className="extra-info" data-cy="runtime">Runtime: {this.state.singleMovie.runtime} min</p>
           </section>
         </main>
         <Footer />
       </div>
     )
-  }   
+  }
   }
 }
-    
-    
+
+
 export default MovieSnapShot;
 
 MovieSnapShot.propTypes = {
   id: PropTypes.string,
   onHomeClick: PropTypes.func,
-  
+
 }
