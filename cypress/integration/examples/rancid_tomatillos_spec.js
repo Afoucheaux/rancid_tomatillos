@@ -1,24 +1,3 @@
-
-describe("Error message", () => {
-
-  it("Should have an error message if data is not returned from the API", () => {
-    const errorMessage = "Oops! We are broke! Please refer to the contact below and hire us..get it..we are broke";
-    cy.intercept(
-      {
-        method: "GET",
-        url: "https://rancid-tomatillos.herokuapp.com/api/v2/movies"
-      },{
-        statusCode: 500,
-        message: errorMessage
-      }
-    )
-    cy.visit("http://localhost:3000")
-    .wait(1000)
-    .get("h1").contains(errorMessage)
-  })
-
-});
-
 describe("Rancid Tomatillos", () => {
 
   it("Should load movie cards from the api data base", () => {
@@ -33,17 +12,7 @@ describe("Rancid Tomatillos", () => {
   });
 
   it("Should be able to click a link and see the movie snap shot", () => {
-    cy.seedAndVisitHappy()
-
-    // cy.intercept('GET','https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', {fixture:"trailer_happy.js"}).as("trailer")
-    // cy.wait(2000)
-    // cy.intercept('GET','https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {fixture:"single_movie_happy.js"}).as("singlemovie")
-    // cy.wait(2000)
-    // cy.intercept('GET','https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture:"movies_happy.js"}).as("movies")
-    // cy.visit('http://localhost:3000')
-
-    // cy.visit('http://localhost:3000')
-    
+    cy.seedAndVisitHappy() 
     cy.get("[data-cy=poster]").first().click()
     cy.get("[data-cy=poster]").should("have.length", 1)
     cy.get(".background-img").should("have.css", "background").should("include","https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg")
@@ -88,7 +57,42 @@ describe("Rancid Tomatillos", () => {
     cy.url().should("eq", "http://localhost:3000/694919")
   })
     
-
-
-
 });
+
+describe("Home page error message", () => {
+
+  it("Should display an error message if data is not returned from the API", () => {
+    const errorMessage = "Oops! We are broke! Please refer to the contact below and hire us..get it..we are broke";
+    cy.intercept(
+      {
+        method: "GET",
+        url: "https://rancid-tomatillos.herokuapp.com/api/v2/movies"
+      },{
+        statusCode: 500,
+        message: errorMessage
+      }
+    )
+    cy.visit("http://localhost:3000")
+    .wait(1000)
+    .get("h1").contains(errorMessage)
+  })
+});
+
+describe("Single movie error message", () => {
+  it("Should display an error message for a 500 server status", () => {
+
+    cy.intercept(
+      {
+        method: "GET",
+        url: "https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919"
+      },{
+        statusCode: 500,
+        message: "Something went wrong"
+      }
+    )
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies', {fixture:"movies_happy.js"})
+    cy.visit('http://localhost:3000')
+    cy.get("[data-cy=poster]").first().click()
+    cy.get("[data-cy=single-movie-error]").contains("There was an issue, please refresh and try again")
+  })
+})
