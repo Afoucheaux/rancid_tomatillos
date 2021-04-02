@@ -11,6 +11,14 @@ describe("Rancid Tomatillos", () => {
     cy.contains("Released | 2020-09-29")
   });
 
+  it("Should show a loading message when grabbing single movie data", () => {
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', {fixture:"trailer_happy.js"})
+    cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {fixture:"single_movie_happy.js"})
+    cy.visit('http://localhost:3000/694919')
+    cy.get("[data-cy=loading-single]").contains("Loading movie....")
+
+  })
+
   it("Should be able to click a link and see the movie snap shot", () => {
     cy.seedAndVisitHappy()
     cy.get("[data-cy=poster]").first().click()
@@ -55,8 +63,9 @@ describe("Rancid Tomatillos", () => {
     cy.get("[data-cy=home-button]").click()
     cy.go("back")
     cy.url().should("eq", "http://localhost:3000/694919")
-  })
-
+ testing/single-movie-load-msg
+  });
+   
 });
 
 describe("Home page error message", () => {
