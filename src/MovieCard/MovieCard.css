@@ -30,7 +30,6 @@
 
 .card-container:hover {
   width: 21%;
-  padding: 1%;
   box-shadow: 12px 12px 50px 1px rgba(194, 3, 252, .9),
   -12px -12px 50px 1px rgba(194, 3, 252, .4);
 }

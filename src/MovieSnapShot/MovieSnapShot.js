@@ -44,7 +44,7 @@ class MovieSnapShot extends Component {
     }
     return (
       <div className="background-img" style={styles}>
-        <Header/>
+        <Header hideSearch={"hidden"}/>
         <main className="single-movie-container">
           <MovieCard
             key={this.state.singleMovie.id}

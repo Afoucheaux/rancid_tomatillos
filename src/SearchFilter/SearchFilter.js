@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import "./SearchFilter.css";
 
 
 class SearchFilter extends Component {
@@ -18,7 +19,7 @@ class SearchFilter extends Component {
 
   render() {
     return (
-      <form className={`search-container ${this.hide}`} >
+      <form className={`search-container ${this.props.hideSearch}`} >
         <input className="search-movies" value={this.state.keywords} name="keywords" onChange={this.handleChange} placeholder="search movies here"/>
       </form>
     )

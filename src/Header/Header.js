@@ -8,9 +8,9 @@ const Header = (props) => {
   return (
     <header className="header">
       <h1 className="header-title" data-cy="title"><span className="header-title-letter">R</span>OTTON <span className="header-title-letter">T</span>OMATILLOS</h1>
-      <SearchFilter hide={props.hide} displaySearch={props.displaySearch}/>
+      <SearchFilter hideSearch={props.hideSearch} displaySearch={props.displaySearch}/>
       <div>
-        <Link to="/" className={`home-btn ${props.hide}`} data-cy="home-button">Home</Link>
+        <Link to="/" className={`home-btn ${props.hideHome}`} data-cy="home-button">Home</Link>
       </div>
     </header>
   )

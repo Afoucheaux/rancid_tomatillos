@@ -60,7 +60,7 @@ class HomePage extends Component {
   render() {
     return (
        <>
-        <Header hide={"hidden"} displaySearch={this.displaySearch}/>
+        <Header hideHome={"hidden"} displaySearch={this.displaySearch}/>
         <main className="movies-container">
           {!this.state.error && !this.state.movies.length && <h1 data-cy="page-load-message">Loading...</h1>}
           {this.state.error && <h1 className="load-error">Oops! We are broke! Please refer to the contact below and hire us..get it..we are broke</h1>}
