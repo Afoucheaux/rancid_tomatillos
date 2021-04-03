@@ -1,0 +1,19 @@
+.search-container {
+  display: flex; 
+  justify-content: flex-end; 
+  width: 50%; 
+}
+
+
+.search-movies {
+  height: 25px; 
+  width: 50%;
+  border-radius: 20px;
+  text-align: center; 
+  font-size: 1em;  
+}
+
+.hidden {
+  display: none; 
+}
+  

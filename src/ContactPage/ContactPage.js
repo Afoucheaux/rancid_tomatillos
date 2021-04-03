@@ -6,7 +6,7 @@ import "./ContactPage.css";
 const ContactPage = () => {
   return (
     <>
-      <Header />
+      <Header hideSearch={"hidden"}/>
       <div className="contact-container">
         <ContactCard />
       </div>

@@ -10,7 +10,8 @@ class HomePage extends Component {
     super()
     this.state= {
       movies: [],
-      error: ''
+      error: "",
+      filteredMovies: []
     }
   }
 
@@ -25,7 +26,14 @@ class HomePage extends Component {
   }
 
   displayMovies = () => {
-    const movieList = this.state.movies.map(movie => {
+    let currentMovieList;
+    if(!this.state.filteredMovies.length){
+      currentMovieList = this.state.movies
+  } else {
+      currentMovieList = this.state.filteredMovies
+    }
+
+    const movieList = currentMovieList.map(movie => {
       return <MovieCard
         key={movie.id}
         id={movie.id}
@@ -40,10 +48,19 @@ class HomePage extends Component {
     return movieList;
   }
 
+  displaySearch = (character) => {
+    const cleanedCharacter = character.toLowerCase()
+    const searchedMovies = this.state.movies.filter(movie => {
+      return movie.title.toLowerCase().includes(cleanedCharacter)
+    });
+    this.setState({filteredMovies: searchedMovies})
+  }
+  
+
   render() {
     return (
        <>
-        <Header hide={"hidden"}/>
+        <Header hideHome={"hidden"} displaySearch={this.displaySearch}/>
         <main className="movies-container">
           {!this.state.error && !this.state.movies.length && <h1 data-cy="page-load-message">Loading...</h1>}
           {this.state.error && <h1 className="load-error">Oops! We are broke! Please refer to the contact below and hire us..get it..we are broke</h1>}
