@@ -11,6 +11,15 @@ describe("Rancid Tomatillos", () => {
     cy.contains("Released | 2020-09-29")
   });
 
+  it("Should search movies by title", () => {
+    cy.seedAndVisitHappy();
+    cy.get('[data-cy=search-bar]').type("money")
+    cy.get("[data-cy=poster]").should("have.length", 1)
+    cy.contains("Money Plane")
+    cy.get('[data-cy=search-bar]').clear()
+    cy.get("[data-cy=poster]").should("have.length", 2)
+  })
+
   it("Should show a loading message when grabbing single movie data", () => {
     cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919/videos', {fixture:"trailer_happy.js"})
     cy.intercept('https://rancid-tomatillos.herokuapp.com/api/v2/movies/694919', {fixture:"single_movie_happy.js"})
@@ -22,6 +31,7 @@ describe("Rancid Tomatillos", () => {
   it("Should be able to click a link and see the movie snap shot", () => {
     cy.seedAndVisitHappy()
     cy.get("[data-cy=poster]").first().click()
+    cy.get('[data-cy=search-form]').should("not.be.visible")
     cy.get("[data-cy=poster]").should("have.length", 1)
     cy.get(".background-img").should("have.css", "background").should("include","https://image.tmdb.org/t/p/original//pq0JSpwyT2URytdFG0euztQPAyR.jpg")
     cy.get("[data-cy=trailer]").should("have.attr", "src").should("include","https://www.youtube.com/embed/aETz_dRDEys")
@@ -63,7 +73,6 @@ describe("Rancid Tomatillos", () => {
     cy.get("[data-cy=home-button]").click()
     cy.go("back")
     cy.url().should("eq", "http://localhost:3000/694919")
- testing/single-movie-load-msg
   });
    
 });
@@ -111,6 +120,7 @@ describe("Contact Page", () => {
   it("Should open the contact page when any page and return to home screen", () => {
     cy.seedAndVisitHappy()
     cy.get("[data-cy=contact-button]").click()
+    cy.get('[data-cy=search-form]').should("not.be.visible")
     cy.contains("Elizabeth Hahn")
     cy.contains("Aaron Foucheaux")
     cy.contains("Home")

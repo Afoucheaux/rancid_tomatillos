@@ -19,8 +19,14 @@ class SearchFilter extends Component {
 
   render() {
     return (
-      <form className={`search-container ${this.props.hideSearch}`} >
-        <input className="search-movies" value={this.state.keywords} name="keywords" onChange={this.handleChange} placeholder="search movies here"/>
+      <form className={`search-container ${this.props.hideSearch}`} data-cy="search-form">
+        <input 
+        className="search-movies" 
+        value={this.state.keywords} 
+        name="keywords" 
+        onChange={this.handleChange} 
+        placeholder="search movies here"
+        data-cy="search-bar"/>
       </form>
     )
   }
