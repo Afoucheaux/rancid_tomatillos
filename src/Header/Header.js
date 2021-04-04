@@ -7,7 +7,7 @@ import SearchFilter from "../SearchFilter/SearchFilter";
 const Header = (props) => {
   return (
     <header className="header">
-      <h1 className="header-title" data-cy="title"><span className="header-title-letter">R</span>OTTON <span className="header-title-letter">T</span>OMATILLOS</h1>
+      <h1 className="header-title" data-cy="title"><span className="header-title-letter">R</span>ANCID <span className="header-title-letter">T</span>OMATILLOS</h1>
       <SearchFilter hideSearch={props.hideSearch} displaySearch={props.displaySearch}/>
       <div>
         <Link to="/" className={`home-btn ${props.hideHome}`} data-cy="home-button">Home</Link>
