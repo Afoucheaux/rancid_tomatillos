@@ -16,4 +16,22 @@
 .hidden {
   display: none; 
 }
+
+@media screen and (max-width: 900px) {
+
+  .search-movies {
+    width: 100%; 
+  }
+}
+
+@media screen and (max-width: 500px) {
+
+  .search-container {
+    width: 100%; 
+  }
   
+  .search-movies {
+    width: 95%; 
+  }
+  
+}
