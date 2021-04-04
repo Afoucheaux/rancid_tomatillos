@@ -37,16 +37,13 @@
 @media screen and (max-width: 500px) {
  .header {
    flex-direction: column;
-     padding: 1px 30px;
+   justify-content: flex-start;
+   height: 155px;   
   }
 
   .header-title {
     font-size: 1.55em;
     text-align: center;
-  }
-
-  .home-btn {
-    margin-bottom: 0px;
-    padding: 8px 30px;
+    padding: 10px;
   }
 }
