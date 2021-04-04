@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./SearchFilter.css";
+import PropTypes from "prop-types";
 
 
 class SearchFilter extends Component {
@@ -26,11 +27,17 @@ class SearchFilter extends Component {
         name="keywords" 
         onChange={this.handleChange} 
         placeholder="search movies here"
-        data-cy="search-bar"/>
+        data-cy="search-bar"
+        aria-label="search-bar"/>
       </form>
     )
   }
 }
 
 
-export default SearchFilter
+export default SearchFilter;
+
+SearchFilter.propTypes = {
+  displaySearch: PropTypes.func,
+  hideSearch: PropTypes.string
+}
