@@ -3,7 +3,7 @@
     <!-- <img src="images/logo.png" alt="Logo" width="80" height="80"> -->
   </a>
 
-  <h1 align="left">What's Cookin'?</h1>
+  <h1 align="left">Rancid Tomatillos</h1>
   
 ## Contact  
   
