@@ -1,70 +1,120 @@
-# Getting Started with Create React App
+<p align="center">
+  <a href="https://github.com/alexthompson207/whats-cookin">
+    <!-- <img src="images/logo.png" alt="Logo" width="80" height="80"> -->
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h1 align="left">What's Cookin'?</h1>
+  
+## Contact  
+  
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555)](https://github.com/Afoucheaux) [![GitHub](https://img.shields.io/badge/GitHub-black.svg?&style=flat-square&logo=github&logoColor=white)](https://www.linkedin.com/in/aaron-foucheaux-891626207/) - Aaron Foucheaux
 
-## Available Scripts
+[![LinkedIn](https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555)](https://www.linkedin.com/in/elizabeth-s-hahn/) [![GitHub](https://img.shields.io/badge/GitHub-black.svg?&style=flat-square&logo=github&logoColor=white)](https://github.com/elizhahn) - Elizabeth Hahn
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Table of Contents
 
-### `npm test`
+- [About the Project](#about-the-project)
+  - [Built With](#built-with)
+- [Set-up Instructions](#set-up-instructions)
+- [Learning Goals](#learning-goals)
+- [Challenges](#challenges)
+- [Wins](#wins)
+- [Functionality](#functionality)
+- [Future Iterations](#future-iterations)
+- [Contributors](#contributors)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## About The Project
 
-### `npm run build`
+This project utilizes Create React App to build a movie application which allows users to view a list of movies, search by title, and find more information about each movie including a trailer. Throughout the project, learning goals included:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Architect an application structure using class and functional components
+- Gain competency with React fundamentals
+- Learn how to test React components & asynchronous JS using Cypress testing
+- implement full E2E test coverage of user flows using Cypress testing
+- Create a multi-page UX using Router
+- Deployment using Heroku
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [Deployed app](https://limitless-escarpment-37745.herokuapp.com/)
+- [Project Brief and Rubric](https://frontend.turing.io/projects/module-3/rancid-tomatillos-v3.html)
+  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Built With:
 
-### `npm run eject`
+- React
+- React Router
+- Javascript
+- HTML5
+- CSS
+- Cypress
+- Heroku
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+  
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Set-up Instructions
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ visit deployed site [here](https://limitless-escarpment-37745.herokuapp.com/)
+ 
+1. Additionally you can clone down the repo [here](https://github.com/Afoucheaux/rancid_tomatillos)
+2. Move into the rancid_tomatillos directory in your terminal.
+3. To see the code itself locally, run `<name of text editor> .`
+  - Run `npm install`
+  - Run `npm start`
+  - visit http://localhost:3000/
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Learning Goals
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Deeper understanding of React fundamentals including components, props, state, and JSX
+- E2E (end to end) testing using Cypress
+- Refactoring an application to utilize React Router
+- Deploying an application
+- Professional work flow using git and github, and conducting thorough code reviews for each pull request
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Challenges
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1. Planning: intentionally planning an overall strategy before writing code. This included component structures and state if applicable
+2. Using Cypress testing, to implement E2E testing and throughly test all user flows including stubbing api calls
+3. refactoring initial structure of application to utilize React Router
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Wins
 
-### Making a Progressive Web App
+1. Implementing the MVP with added functionality including a search bar filter, contact page, and trailer for each movie
+2. Cypress testing covers all user flows
+3. Deployment on Heroku
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Functionality
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+#### Home and Movies View
+![Home and movies view](https://media.giphy.com/media/aitKojS2Tgzh2lIgM9/giphy.gif)
 
-### Deployment
+#### Search bar
+![Pantry and Cook View](https://media.giphy.com/media/nf3cgXfjJS9J7aPjQ3/giphy.gif)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+#### Movie Snap Shot
+![Search and Filter View](https://media.giphy.com/media/Bs4aPIEWSERpRAzen4/giphy.gif)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## Future Iterations
+
+1. A filter area to filter by genre
+2. Implement a backend for user ratings and allow a user to submit ratings for movies they have seen and edit those ratings
+3. A dynamic title bar that displays a fun new title on load such as "Ugly Potatoes", "Revolting Asparagus", or "Pompous Papayas"
+
+
+
+## Contributers
+
+* [Aaron Foucheaux](https://github.com/alexthompson207) - Application Co-creator
+* [Elizabeth Hahn](https://github.com/elizhahn) - Application Co-creator
+* [Leta](https://github.com/letakeane) - Project Manager
+* [Scott Ertmer](https://github.com/sertmer) - Project Manager
+
+
+
