@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import MovieCard from "../MovieCard/MovieCard";
+import MovieInfo from "../MovieInfo/MovieInfo";
 import "./MovieSnapShot.css";
 import PropTypes from "prop-types";
 import { getSingleMovieData } from "../apiCalls.js"
@@ -36,8 +37,6 @@ class MovieSnapShot extends Component {
   } else if(this.state.error && this.state.clickedMovieId) {
     return <h1 data-cy="single-movie-error">There was an issue, please refresh and try again</h1>
   } else {
-    const trailerToPlay = `https://www.youtube.com/embed/${this.state.trailer.key}`;
-    const genres = this.state.singleMovie.genres.join(" | ");
     const styles = {
         background: this.state.singleMovie.backdrop_path ? `-webkit-linear-gradient(rgba(0,0,0, .3) 0%,rgba(0,0,0, 1) 100%), url(${this.state.singleMovie.backdrop_path}) no-repeat center center fixed` : null,
         backgroundSize: "cover"
@@ -56,12 +55,10 @@ class MovieSnapShot extends Component {
             classStyle={"card-container-single-movie"}
             imageStyle={"no-image-hover"}
           />
-          <section className="extra-info-container">
-              <iframe className="extra-info-trailer" src={trailerToPlay} title="Movie Trailer" aria-label={`${this.state.singleMovie.title} trailer`} data-cy="trailer"></iframe>
-            <p className="extra-info" data-cy="overview">{this.state.singleMovie.overview}</p>
-            <p className="extra-info" data-cy="genre">{genres}</p>
-            <p className="extra-info" data-cy="runtime">Runtime: {this.state.singleMovie.runtime} min</p>
-          </section>
+          <MovieInfo 
+            singleMovie={this.state.singleMovie} 
+            trailer={this.state.trailer}
+          />
         </main>
         <Footer />
       </div>
