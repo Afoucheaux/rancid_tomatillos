@@ -17,7 +17,6 @@ const MovieCard = ({id, posterImage, title, averageRating, releaseDate, classSty
 export default MovieCard
 
 MovieCard.propTypes = {
-  key: PropTypes.number,
   id: PropTypes.number,
   posterImage: PropTypes.string,
   title: PropTypes.string,
