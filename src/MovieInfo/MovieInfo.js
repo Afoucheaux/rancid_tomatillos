@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const MovieInfo = (props) => {
   const trailerToPlay = `https://www.youtube.com/embed/${props.trailer.key}`;
@@ -14,3 +15,8 @@ const MovieInfo = (props) => {
 }
 
 export default MovieInfo;
+
+MovieInfo.propTypes = {
+  singleMovie: PropTypes.object,
+  trailer: PropTypes.object,
+}
