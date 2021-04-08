@@ -3,7 +3,7 @@ describe("Rancid Tomatillos", () => {
   it("Should load movie cards from the api data base", () => {
     cy.seedAndVisitHappy()
     cy.get("[data-cy=page-load-message]").contains("Loading...")
-    cy.get("[data-cy=title]").contains("ROTTON TOMATILLOS")
+    cy.get("[data-cy=title]").contains("RANCID TOMATILLOS")
     cy.get("[data-cy=poster]").should("be.visible").should("have.length", 2)
     cy.get("[data-cy=poster]").should("be.visible")
     cy.contains("Money Plane")
@@ -74,7 +74,7 @@ describe("Rancid Tomatillos", () => {
     cy.go("back")
     cy.url().should("eq", "http://localhost:3000/694919")
   });
-   
+
 });
 
 describe("Home page error message", () => {
